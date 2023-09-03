@@ -1,44 +1,86 @@
-.loader {
-    width: 96px;
-    box-sizing: content-box;
+/* .loader {
+    width: 48px;
     height: 48px;
-    background: #FFF;
-    border-color: #de3500;
-    border-style: solid;
-    border-width: 2px 2px 50px 2px;
-    border-radius: 100%;
+    display: inline-block;
     position: relative;
-    animation: 3s yinYang linear infinite;
+} */
+* {
+    box-sizing: border-box;
 }
 
-.loader:before {
-    content: "";
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #fafafa;
+    color: #212121;
+    line-height: 1.5;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    border: 1px solid #0d161b;
+}
+
+h1 {
+    margin: 0;
+}
+
+.is-hidden {
     position: absolute;
-    top: 50%;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.breed-select {
+    display: none;
+    max-width: 400px;
+    margin: auto;
+}
+
+.loader {
+    font-size: 0;
+    position: relative;
+    margin: 20% auto;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+}
+.loader::after,
+.loader::before {
+    content: '';
+    box-sizing: border-box;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #FFF;
+    position: absolute;
     left: 0;
-    background: #FFF;
-    border: 18px solid #de3500;
-    border-radius: 100%;
-    width: 12px;
-    height: 12px;
-    box-sizing: content-box;
+    top: 0;
+    animation: animloader 2s linear infinite;
 }
 
-.loader:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background: #de3500;
-    border: 18px solid #FFF;
-    border-radius: 100%;
-    width: 12px;
-    height: 12px;
-    box-sizing: content-box;
+.loader::after {
+    animation-delay: 1s;
 }
 
-@keyframes yinYang {
+@keyframes animloader {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
     100% {
-        transform: rotate(360deg)
+        transform: scale(1);
+        opacity: 0;
     }
 }
