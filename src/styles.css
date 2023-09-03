@@ -1,14 +1,6 @@
-.cat-info {
+/* * {
     box-sizing: border-box;
-    border: 1px solid #c9c9c9;
-    background-color:#fffbfb
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 20px;
-    padding: 20px;
-    display: flex;
-}
+} */
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -18,6 +10,16 @@ body {
     background-color: #fafafa;
     color: #212121;
     line-height: 1.5;
+}
+.cat-info {
+    background-color: #ffe8e8;
+    border: 1px solid #c9c9c9;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
 }
 
 img {
@@ -50,39 +52,86 @@ h1 {
 }
 
 .loader {
-    font-size: 0;
-    position: relative;
-    margin: 20% auto;
-    width: 250px;
-    display: flex;
-    justify-content: space-between;
-}
-.loader::after,
-.loader::before {
-    content: '';
-    box-sizing: border-box;
+    transform: rotateZ(45deg);
+    perspective: 1000px;
+    border-radius: 50%;
     width: 48px;
     height: 48px;
-    border-radius: 50%;
-    border: 2px solid #FFF;
+    color: #fff;
+}
+
+.loader:before,
+.loader:after {
+    content: '';
+    display: block;
     position: absolute;
-    left: 0;
     top: 0;
-    animation: animloader 2s linear infinite;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    transform: rotateX(70deg);
+    animation: 1s spin linear infinite;
 }
 
-.loader::after {
-    animation-delay: 1s;
+.loader:after {
+    color: #FF3D00;
+    transform: rotateY(70deg);
+    animation-delay: .4s;
 }
 
-@keyframes animloader {
+@keyframes rotate {
     0% {
-        transform: scale(0);
-        opacity: 1;
+        transform: translate(-50%, -50%) rotateZ(0deg);
     }
 
     100% {
-        transform: scale(1);
-        opacity: 0;
+        transform: translate(-50%, -50%) rotateZ(360deg);
+    }
+}
+
+@keyframes rotateccw {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
+
+@keyframes spin {
+
+    0%,
+    100% {
+        box-shadow: .2em 0px 0 0px currentcolor;
+    }
+
+    12% {
+        box-shadow: .2em .2em 0 0 currentcolor;
+    }
+
+    25% {
+        box-shadow: 0 .2em 0 0px currentcolor;
+    }
+
+    37% {
+        box-shadow: -.2em .2em 0 0 currentcolor;
+    }
+
+    50% {
+        box-shadow: -.2em 0 0 0 currentcolor;
+    }
+
+    62% {
+        box-shadow: -.2em -.2em 0 0 currentcolor;
+    }
+
+    75% {
+        box-shadow: 0px -.2em 0 0 currentcolor;
+    }
+
+    87% {
+        box-shadow: .2em -.2em 0 0 currentcolor;
     }
 }
