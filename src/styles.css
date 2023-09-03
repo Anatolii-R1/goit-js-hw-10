@@ -1,5 +1,13 @@
-* {
+.cat-info {
     box-sizing: border-box;
+    border: 1px solid #c9c9c9;
+    background-color:#fffbfb
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
 }
 
 body {
@@ -15,7 +23,7 @@ body {
 img {
     display: block;
     max-width: 100%;
-    border: 1px solid #0d161b;
+    border: 1px solid #c9c9c9;
 }
 
 h1 {
